@@ -26,12 +26,23 @@ for (let i = 0; i < 15; i++) {
     );
 }
 
+function createNewListObject(){
+
+    rl.on('line', (line) => {
+        console.log('you wrote:' + line.trim());
+        rl.close();
+    });
+};
+
 rl.prompt();
 
 rl.on('line', (line) => {
   switch (line.trim().toLowerCase()) {
     case 'n':
-      console.log(testList);
+        rl.on('line', (line) => {
+            console.log(line)
+        });
+        createNewListObject();
       break;
     default:
       console.log(`Say what? I might have heard '${line.trim()}'`);
