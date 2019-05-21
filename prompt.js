@@ -6,12 +6,32 @@ const rl = readline.createInterface({
   prompt: '> '
 });
 
+//Clear console
+process.stdout.write('\033c');
+
+//import ToDoList functions
+var toDoList = require('./script');
+
+// for testing purposes
+var testList = [];
+
+// Creates 15 entries
+// for testing purposes.
+for (let i = 0; i < 15; i++) {
+    testList = toDoList.addListItem(
+        testList,
+        "Title Goes here",
+        "Description is here",
+        new Date()
+    );
+}
+
 rl.prompt();
 
 rl.on('line', (line) => {
-  switch (line.trim()) {
-    case 'hello':
-      console.log('world!');
+  switch (line.trim().toLowerCase()) {
+    case 'n':
+      console.log(testList);
       break;
     default:
       console.log(`Say what? I might have heard '${line.trim()}'`);
