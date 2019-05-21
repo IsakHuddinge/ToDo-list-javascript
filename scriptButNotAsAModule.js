@@ -1,5 +1,5 @@
 // Creates a new dictionary and adds it to the array
-addListItem: function (listArray, itemTitle, itemDescription, itemDeadline){
+function addListItem(array, itemTitle, itemDescription, itemDeadline){
     var listObject = {
             title:itemTitle,
             description: itemDescription,
@@ -7,6 +7,6 @@ addListItem: function (listArray, itemTitle, itemDescription, itemDeadline){
             done: false
     };
 
-    listArray.push(listObject);
-    return listArray;
+    array.push(listObject);
+    return array;
 }
